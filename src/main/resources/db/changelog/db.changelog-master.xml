@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+<!--
+    remove this comment after creating notification-table.xml inside notifications folder
+    <include file="notifications/notification-table.xml"/>
+-->
+    <include file="db/notifications/notification-table.xml"/>
+</databaseChangeLog>
