@@ -14,7 +14,7 @@ import java.time.Instant;
 public class NotificationConsumer {
     private final NotificationRepository notificationRepository;
 
-    @KafkaListener(topics = "notification-events")
+    @KafkaListener(topics = "notification-topic")
     public void consume(NotificationDTO dto){
         Notification notification = new Notification(
                 null,
