@@ -20,8 +20,11 @@ public class NotificationService {
         return notificationRepository.countByUserIdAndReadFalse(userId);
     }
 
-    public Mono<Void> markAsReadByNotificationId(String notificationId){
-        return notificationRepository.findById(notificationId).flatMap(
+    public Mono<Void> markAsReadByNotificationId(String notificationId,String userId){
+
+        return notificationRepository.findById(notificationId)
+                .filter(notification -> userId.equals(notification.getUserId()))
+                .flatMap(
                 notification -> {
                     notification.setRead(true);
                     return notificationRepository.save(notification);
