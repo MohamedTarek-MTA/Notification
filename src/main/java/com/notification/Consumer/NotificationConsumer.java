@@ -19,6 +19,7 @@ public class NotificationConsumer {
         Notification notification = new Notification(
                 null,
                 dto.getUserId(),
+                dto.getFromUserId(),
                 dto.getTargetType(),
                 dto.getMessage(),
                 dto.getAppName(),
