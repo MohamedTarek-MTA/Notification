@@ -12,6 +12,7 @@ public class NotificationDTO {
     private String id;
 
     private String userId;
+    private String fromUserId;
     private String targetType;
     private String message;
     private String appName;

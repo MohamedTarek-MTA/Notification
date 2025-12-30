@@ -18,6 +18,7 @@ public class Notification {
 
     @Indexed
     private String userId;
+    private String fromUserId;
     private String targetType;
     private String message;
     private String appName;
@@ -26,3 +27,6 @@ public class Notification {
     @Indexed(expireAfter = "30d")
     private Instant createdAt;
 }
+
+
+//// Just Comment !!
