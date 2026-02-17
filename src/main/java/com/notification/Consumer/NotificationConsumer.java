@@ -4,6 +4,7 @@ import com.notification.DTO.NotificationDTO;
 import com.notification.Document.Notification;
 import com.notification.Repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import java.time.Instant;
 
 @Component
 @RequiredArgsConstructor
+@Log4j2
 public class NotificationConsumer {
     private final NotificationRepository notificationRepository;
 
@@ -26,7 +28,9 @@ public class NotificationConsumer {
                 false,
                 Instant.now()
         );
-        notificationRepository.save(notification).subscribe();
+        notificationRepository.save(notification).doOnError(
+            e -> log.error("Failed to save notification", e)
+        ).block();
     }
 
 }
